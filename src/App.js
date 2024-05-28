@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Nutritions from './Nutritions';
 import LoaderPage from './LoaderPage';
 import Recipe from './Recipe';
-import ApiCall from './ApiCall';
+// import ApiCall from './ApiCall';
 import Swal from 'sweetalert2';
 
 function App() {
