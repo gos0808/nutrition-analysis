@@ -1,4 +1,4 @@
-function Recipe({ recipe, setRecipe, setAnalyzedRecipe }) {
+function Recipe({ recipe, setRecipe, setAnalyzedRecipe, nutritions }) {
 
     const handleInputChange = (e) => {
         setRecipe(e.target.value);

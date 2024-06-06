@@ -1,44 +1,18 @@
+import { useEffect, useState } from 'react';
+import { transformLabels } from './Labels';
+import { getRandomClass } from './RandomColor';
+
+
 function Nutritions({ calories, cautions, totalNutrients, ingredients }) {
 
-    const transformIngredientLabel = label => {
-        switch (label) {
-            case 'Total lipid (fat)':
-                return 'Total Fat';
-            case 'Fatty acids, total saturated':
-                return 'Saturated Fat';
-            case 'Fiber, total dietary':
-                return 'Dietary Fiber';
-            case 'Carbohydrate, by difference':
-                return 'Total Carbohydrate';
-            case 'Sugars, total including NLEA':
-                return 'Total Sugars';
-            case 'Vitamin E (alpha-tocopherol)':
-                return 'Vitamin E';
-            case 'Vitamin K (phylloquinone)':
-                return 'Vitamin K';
-            case 'Fatty acids, total polyunsaturated':
-                return null;
-            case 'Fatty acids, total monounsaturated':
-                return null;
-            case 'Folate, food':
-                return null;
-            default:
-                return label;
+    const [randomColors, setRandomColors] = useState([]);
+
+    useEffect(() => {
+        if (totalNutrients) {
+            const newRandomColors = Object.values(totalNutrients).map(() => getRandomClass());
+            setRandomColors(newRandomColors);
         }
-    };
-
-    const colorClasses = [
-        'first-color',
-        'second-color',
-        'third-color',
-        'fourth-color',
-        'fifth-color'
-    ];
-
-    const getRandomClass = () => {
-        const randomIndex = Math.floor(Math.random() * colorClasses.length);
-        return colorClasses[randomIndex];
-    };
+    }, [totalNutrients]);
 
     return (
         <div>
@@ -55,9 +29,10 @@ function Nutritions({ calories, cautions, totalNutrients, ingredients }) {
             <div className='nutrients'>
                 {totalNutrients && Object.values(totalNutrients).map((value, index) => {
                     const { label, quantity, unit } = value;
-                    const newLabel = transformIngredientLabel(label);
+                    const newLabel = transformLabels(label);
+
                     return newLabel !== null ?
-                        <div className={`nutrient ${getRandomClass()}`} key={index}>
+                        <div className={`nutrient ${randomColors[index]}`} key={index}>
                             <p className="label">{newLabel.split(',')[0]}</p>
                             <p className="quantity">{quantity && quantity.toFixed(1) + ' ' + unit}</p>
                         </div >
@@ -67,4 +42,5 @@ function Nutritions({ calories, cautions, totalNutrients, ingredients }) {
         </div >
     );
 };
+
 export default Nutritions;
