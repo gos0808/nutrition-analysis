@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 function App() {
 
-  const [recipe, setRecipe] = useState('1 salmon, 1 orange');
+  const [recipe, setRecipe] = useState('1 orange');
   const [analyzedRecipe, setAnalyzedRecipe] = useState('');
   const [nutritions, setNutritions] = useState('');
   const [stateLoader, setStateLoader] = useState(false);
@@ -46,7 +46,8 @@ function App() {
       {stateLoader && <LoaderPage />}
 
       <div>
-        <h1>Nutrition Analyzer: Enter an ingredient list and quantity for what you are cooking</h1>
+        <h1>Nutrition Analyzer</h1>
+        <p className='instructions'>Enter ingredient list and quantity for nutrition analysis</p>
       </div>
 
       <Recipe

@@ -9,23 +9,31 @@
     --clr--light-orange: #ffe79a;
     --clr-white: #fff;
 
-    --fs-base: 1.3rem;
+    --fs-base: 1.1rem;
     --fs-big: 1.4rem;
     --fs-small: 1rem;
 }
 
 .App {
     text-align: center;
+    margin: auto;
+    padding: 1rem;
 }
 
 h1 {
     color: var(--clr-blue);
+    margin: 0.3rem;
 
+}
+
+.instructions {
+    color: var(--clr-grey);
+    font-weight: 500;
 }
 
 textarea {
     font-size: var(--fs-base);
-    width: 30%;
+    min-width: 30%;
     min-height: 100px;
     margin: 20px auto;
 }
@@ -44,18 +52,18 @@ button:hover {
 }
 
 .ingredient {
-    font-size: var(--fs-bigg);
+    font-size: var(--fs-base);
     font-weight: bold;
     color: var(--clr-blue);
 }
 
 .calories {
-    font-size: var(--fs-big);
+    font-size: var(--fs-base);
     font-weight: bold;
 }
 
 .ingredients-list {
-    font-size: var(--fs-base);
+    font-size: var(--fs-small);
     color: 	var(--clr-blue);
 }
 
@@ -130,10 +138,11 @@ button:hover {
 
 
 
-@media (min-width: 40rem) {
+@media (min-width: 640px) {
     :root {
         --fs-base: 1.1rem;
         --fs-bigger: 1.2rem;
         --fs-small: 1rem;
     }
+
 }
