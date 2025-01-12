@@ -2,6 +2,7 @@
 The Nutrition Analysis app allows you to input a list of ingredients along with their quantities and provides an estimate of the nutritional information for the entire recipe or individual ingredient. Using a nutrition database, it calculates key metrics such as calories, macronutrients (carbohydrates, proteins, fats), and micronutrients (vitamins and minerals).
 
 # Links
+https://github.com/gos0808/nutrition-analysis
 https://nutritions-analysis.netlify.app/
 
 # Getting Started with Create React App
